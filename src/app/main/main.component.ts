@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {Router, RouterModule} from '@angular/router';
+import {Router } from '@angular/router';
 import {JsonPipe, NgForOf} from "@angular/common";
 import {ApiService} from "../shared/services/api.service";
 import {forkJoin} from "rxjs";
@@ -104,7 +104,6 @@ export class MainComponent implements OnInit {
         requestAnimationFrame(scroll);
       }
     };
-
     requestAnimationFrame(scroll);
   }
 
@@ -117,6 +116,4 @@ export class MainComponent implements OnInit {
   logoBtn() {
     this.Router.navigate(['/main'])
   }
-
-
 }
