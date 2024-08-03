@@ -1,0 +1,56 @@
+<div id="main">
+  <header>
+    <nav>
+      <h1 (click)="logoBtn()">NetMovies</h1>
+      <ul>
+        <li>Home</li>
+        <li>Movies</li>
+        <li>Series</li>
+        <li>Animations</li>
+      </ul>
+
+      <button type="submit" (click)="logOut()">Log Out</button>
+    </nav>
+  </header>
+
+
+  <section id="main-img">
+    <div class="info">
+      <h2>Vikings: Valhalla</h2>
+      <div class="buttons">
+        <button class="play">Play Now</button>
+        <button>More Info</button>
+      </div>
+      <div class="paragraph">
+        <p>In this sequel to "Vikings," a hundred years have</p>
+        <p>passed and a new generation of legendary heroes</p>
+        <p>arises to forge its own destiny — and make history.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="movie-slider-container">
+    <div *ngFor="let list of movies; index as i">
+      <div class="title-version">
+        <h2>{{ list.name }}</h2>
+      </div>
+      <div class="slider-container">
+        <button class="nav-button prev" (click)="scrollLeft('slider' + i)">&lt;</button>
+        <div [id]="'slider'+i" class="horizontal-slider">
+          <div class="movie-item" *ngFor="let movie of movies[i].movies[0]">
+            <img [src]='img_path + movie.poster_path' [alt]="movie.original_title"/>
+            <div class="caption">
+              <h3>{{ movie.title }}</h3>
+              <p>{{ movie.description }}</p>
+            </div>
+          </div>
+        </div>
+        <button class="nav-button next" (click)="scrollRight('slider' + i)">&gt;</button>
+      </div>
+    </div>
+
+    <footer id="foot">
+      <h1>Developed by Giorgi Jgerenaia</h1>
+    </footer>
+  </section>
+
